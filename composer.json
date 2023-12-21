@@ -1,6 +1,7 @@
 {
-    "name": "christian71-stack/ebay-sell-inventory-php-client",
+    "name": "christian71-stack/ebay-inventory-api",
     "description": "",
+    "minimum-stability": "dev",
     "keywords": [
         "swagger",
         "php",
