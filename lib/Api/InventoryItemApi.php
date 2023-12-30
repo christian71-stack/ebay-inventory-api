@@ -1731,7 +1731,7 @@ class InventoryItemApi
     public function getInventoryItems($limit = null, $offset = null): array
     {
         list($response) = $this->getInventoryItemsWithHttpInfo($limit, $offset);
-        return (array) $response;
+        return $response;
     }
 
     /**
