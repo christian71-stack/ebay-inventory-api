@@ -1726,9 +1726,9 @@ class InventoryItemApi
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Ebay\Sell\Inventory\Model\InventoryItems
+     * @return array
      */
-    public function getInventoryItems($limit = null, $offset = null)
+    public function getInventoryItems($limit = null, $offset = null): array
     {
         list($response) = $this->getInventoryItemsWithHttpInfo($limit, $offset);
         return $response;
@@ -1742,9 +1742,9 @@ class InventoryItemApi
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Ebay\Sell\Inventory\Model\InventoryItems, HTTP status code, HTTP response headers (array of strings)
+     * @return array , HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInventoryItemsWithHttpInfo($limit = null, $offset = null)
+    public function getInventoryItemsWithHttpInfo($limit = null, $offset = null): array
     {
         $returnType = '\Ebay\Sell\Inventory\Model\InventoryItems';
         $request = $this->getInventoryItemsRequest($limit, $offset);
@@ -1788,7 +1788,7 @@ class InventoryItemApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                $content,
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
