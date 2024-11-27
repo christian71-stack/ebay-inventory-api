@@ -1726,7 +1726,7 @@ class InventoryItemApi
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Ebay\Sell\Inventory\Model\InventoryItems
+     * @return array
      */
     public function getInventoryItems($limit = null, $offset = null)
     {
