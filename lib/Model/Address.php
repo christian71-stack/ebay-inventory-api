@@ -86,7 +86,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function swaggerTypes()
+      public static function swaggerTypes(): array
     {
         return self::$swaggerTypes;
     }
@@ -96,7 +96,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function swaggerFormats()
+    public static function swaggerFormats(): array
     {
         return self::$swaggerFormats;
     }
@@ -153,7 +153,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -163,7 +163,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -173,7 +173,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -183,7 +183,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): string
     {
         return self::$swaggerModelName;
     }
@@ -203,15 +203,15 @@ class Address implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
-        $this->container['address_line1'] = isset($data['address_line1']) ? $data['address_line1'] : null;
-        $this->container['address_line2'] = isset($data['address_line2']) ? $data['address_line2'] : null;
-        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
-        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
-        $this->container['county'] = isset($data['county']) ? $data['county'] : null;
-        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
-        $this->container['state_or_province'] = isset($data['state_or_province']) ? $data['state_or_province'] : null;
+        $this->container['address_line1'] = $data['address_line1'] ?? null;
+        $this->container['address_line2'] = $data['address_line2'] ?? null;
+        $this->container['city'] = $data['city'] ?? null;
+        $this->container['country'] = $data['country'] ?? null;
+        $this->container['county'] = $data['county'] ?? null;
+        $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['state_or_province'] = $data['state_or_province'] ?? null;
     }
 
     /**
@@ -219,7 +219,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties(): array
     {
         $invalidProperties = [];
 
@@ -232,7 +232,7 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -467,15 +467,15 @@ class Address implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
+            return (string) json_encode(
                 ObjectSerializer::sanitizeForSerialization($this),
                 JSON_PRETTY_PRINT
             );
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        return (string) json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }

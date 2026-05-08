@@ -120,7 +120,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function swaggerTypes()
+      public static function swaggerTypes(): array
     {
         return self::$swaggerTypes;
     }
@@ -130,7 +130,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function swaggerFormats()
+    public static function swaggerFormats(): array
     {
         return self::$swaggerFormats;
     }
@@ -238,7 +238,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -248,7 +248,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -258,7 +258,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -268,7 +268,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): string
     {
         return self::$swaggerModelName;
     }
@@ -288,7 +288,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['available_quantity'] = isset($data['available_quantity']) ? $data['available_quantity'] : null;
         $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
@@ -321,7 +321,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties(): array
     {
         $invalidProperties = [];
 
@@ -334,7 +334,7 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -977,15 +977,15 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
+            return (string) json_encode(
                 ObjectSerializer::sanitizeForSerialization($this),
                 JSON_PRETTY_PRINT
             );
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        return (string) json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
