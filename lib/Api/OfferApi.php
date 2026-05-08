@@ -1160,14 +1160,14 @@ class OfferApi
     /**
      * Operation getListingFees
      *
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt;For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
-     * @param  \Ebay\Sell\Inventory\Model\OfferKeysWithId $body List of offers that needs fee information (optional)
+     * @param string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt;For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
+     * @param \Ebay\Sell\Inventory\Model\OfferKeysWithId|null $body List of offers that needs fee information (optional)
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Inventory\Model\FeesSummaryResponse
      */
-    public function getListingFees($content_type, $body = null)
+    public function getListingFees(string $content_type, ?OfferKeysWithId $body = null)
     {
         list($response) = $this->getListingFeesWithHttpInfo($content_type, $body);
         return $response;
@@ -1176,14 +1176,14 @@ class OfferApi
     /**
      * Operation getListingFeesWithHttpInfo
      *
-     * @param  string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt;For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
-     * @param  \Ebay\Sell\Inventory\Model\OfferKeysWithId $body List of offers that needs fee information (optional)
+     * @param string $content_type This header indicates the format of the request body provided by the client. Its value should be set to &lt;b&gt;application/json&lt;/b&gt;. &lt;br&gt;&lt;br&gt;For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. (required)
+     * @param \Ebay\Sell\Inventory\Model\OfferKeysWithId|null $body List of offers that needs fee information (optional)
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Inventory\Model\FeesSummaryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getListingFeesWithHttpInfo($content_type, $body = null)
+    public function getListingFeesWithHttpInfo(string $content_type, ?OfferKeysWithId $body = null)
     {
         $returnType = '\Ebay\Sell\Inventory\Model\FeesSummaryResponse';
         $request = $this->getListingFeesRequest($content_type, $body);
