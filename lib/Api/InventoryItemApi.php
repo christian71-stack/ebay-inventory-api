@@ -64,14 +64,14 @@ class InventoryItemApi
     protected $headerSelector;
 
     /**
-     * @param ClientInterface|null $client
-     * @param Configuration|null $config
-     * @param HeaderSelector|null $selector
+     * @param ClientInterface $client
+     * @param Configuration   $config
+     * @param HeaderSelector  $selector
      */
     public function __construct(
-        ?ClientInterface $client = null,
-        ?Configuration   $config = null,
-        ?HeaderSelector $selector = null
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -1726,12 +1726,12 @@ class InventoryItemApi
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array
+     * @return \Ebay\Sell\Inventory\Model\InventoryItems
      */
-    public function getInventoryItems($limit = null, $offset = null): array
+    public function getInventoryItems($limit = null, $offset = null)
     {
         list($response) = $this->getInventoryItemsWithHttpInfo($limit, $offset);
-        return (array) $response;
+        return $response;
     }
 
     /**
@@ -1742,9 +1742,9 @@ class InventoryItemApi
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array , HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Ebay\Sell\Inventory\Model\InventoryItems, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInventoryItemsWithHttpInfo($limit = null, $offset = null): array
+    public function getInventoryItemsWithHttpInfo($limit = null, $offset = null)
     {
         $returnType = '\Ebay\Sell\Inventory\Model\InventoryItems';
         $request = $this->getInventoryItemsRequest($limit, $offset);
@@ -1788,7 +1788,7 @@ class InventoryItemApi
             }
 
             return [
-                $content,
+                ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
