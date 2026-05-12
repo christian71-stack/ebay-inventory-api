@@ -1742,7 +1742,7 @@ class InventoryItemApi
      *
      * @throws \Ebay\Sell\Inventory\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array , HTTP status code, HTTP response headers (array of strings)
+     * @return array
      */
     public function getInventoryItemsWithHttpInfo($limit = null, $offset = null)
     {
